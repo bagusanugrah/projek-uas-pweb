@@ -1,4 +1,4 @@
-@extends('layouts.daftar')
+@extends('layouts.login')
 
 @section('container')
 @endsection

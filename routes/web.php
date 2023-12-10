@@ -20,3 +20,15 @@ Route::get('/', function () {
 Route::get('/daftar', function () {
     return view('daftar');
 });
+
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::get('/penyewa', function () {
+    return view('penyewa');
+});
+
+Route::get('/pembeli', function () {
+    return view('pembeli');
+});
