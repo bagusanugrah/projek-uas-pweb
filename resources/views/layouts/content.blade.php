@@ -39,7 +39,10 @@
 </nav>
 </div>
 <!--navbar end-->
-<div class="card mt-3">
+
+
+
+<!-- <div class="card mt-3">
     <div class="card-header bg-dark text-white">
         Daftar Motor
     </div>
@@ -57,9 +60,9 @@
             </tr>
         </table>
     </div>
-</div>
+</div> -->
 
-<div class="card mt-3">
+<!-- <div class="card mt-3">
     <div class="card-header bg-dark text-white">
     History Transaksi Rental
     </div>
@@ -77,7 +80,7 @@
             </tr>
         </table>
     </div>
-</div>
+</div> -->
 
 
 <div>
