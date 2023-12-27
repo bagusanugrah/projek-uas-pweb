@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DaftarController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,14 +23,8 @@ Route::get('/', function () {
 Route::get('/daftar', [DaftarController::class, 'show'])->name('daftar.get');
 Route::post('/daftar', [DaftarController::class, 'post'])->name('daftar.post');
 
-Route::get('/login', function () {
-    return view('login');
-})->name('login.get');
+Route::get('/login', [LoginController::class, 'show'])->name('login.get');
+Route::post('/login', [LoginController::class, 'post'])->name('login.post');
 
-Route::get('/penyewa', function () {
-    return view('penyewa');
-});
-
-Route::get('/pembeli', function () {
-    return view('pembeli');
-});
+Route::get('/dashboard', [DashboardController::class, 'show'])->name('dashboard.get');
+Route::get('/logout', [DashboardController::class, 'logout'])->name('dashboard.logout');

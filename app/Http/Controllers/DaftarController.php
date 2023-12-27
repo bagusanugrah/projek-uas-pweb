@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class DaftarController extends Controller
 {
     public function show(){
-        return view('daftar');
+        return view('daftar')->with('title', 'Pendaftaran');
     }
 
     public function post(Request $request){
