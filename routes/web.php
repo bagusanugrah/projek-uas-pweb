@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DaftarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,13 +18,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/daftar', function () {
-    return view('daftar');
-});
+Route::get('/daftar', [DaftarController::class, 'show'])->name('daftar.get');
+Route::post('/daftar', [DaftarController::class, 'post'])->name('daftar.post');
 
 Route::get('/login', function () {
     return view('login');
-});
+})->name('login.get');
 
 Route::get('/penyewa', function () {
     return view('penyewa');

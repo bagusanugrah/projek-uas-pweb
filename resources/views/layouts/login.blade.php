@@ -6,11 +6,11 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/daftar.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-</head>
+  </head>
 <body id="all">
-    <div class="wrapper">
+    {{-- <div class="wrapper">
         <h1>SELAMAT DATANG DI BAGUS MOTOR</h1>
-    </div>
+    </div> --}}
     
     <section class="wrapper-footer">
     <div class="card" style="width: 48rem; border-radius: 1rem;" id="background-card" >
@@ -81,9 +81,9 @@
     </div>
 </section>
 
-<div>
-    @yield('conatainer')
-</div>
+@if(session('sukses'))
+  {!! session('sukses') !!}
+@endif
 
 </body>
 </html>

@@ -31,6 +31,8 @@ class Penyewa extends Model
      */
     protected $fillable = ['username', 'nik', 'nama', 'no_hp', 'password'];
 
+    public $timestamps = false;
+
     //penyewa menyewa motor dari beberapa pemilik
     public function pemiliks(): BelongsToMany
     {
