@@ -33,6 +33,7 @@ class Pemilik extends Model
     protected $fillable = ['username', 'nik', 'nama', 'no_hp', 'password'];
 
     public $timestamps = false;
+    public $incrementing = false;
 
     //pemilik punya beberapa motor
     public function motors(): HasMany

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
@@ -39,6 +40,13 @@ class Penyewaan extends Pivot
         'id_pemilik',
         'id_penyewa'
     ];
+
+    public $timestamps = false;
+
+    public function motor(): BelongsTo
+    {
+        return $this->belongsTo(Motor::class, 'plat_nomor', 'plat_nomor');
+    }
 
     //satu penyewaan memiliki satu pengembalian
     public function pengembalian(): HasOne

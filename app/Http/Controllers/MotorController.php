@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Motor;
+use App\Models\Penyewaan;
 use Illuminate\Http\Request;
 
 class MotorController extends Controller
@@ -118,6 +119,28 @@ class MotorController extends Controller
         $motor->delete();
         
         $request->session()->flash('sukses', "<script>alert('Motor berhasil dihapus.');</script>");
+        return redirect()->route('dashboard.get');
+    }
+
+    public function rent(Request $request){
+        $plat_nomor = $request->plat;
+        $merek = $request->merek;
+        $tipe = $request->tipe;
+        $sewa_perhari = $request->sewa_perhari;
+        $id_pemilik = $request->id_pemilik;
+        $id_penyewa = $request->session()->get('loggedin_user');
+
+        Penyewaan::create([
+            'tgl_penyewaan' => now()->toDateString(),
+            'plat_nomor' => $plat_nomor,
+            'merek_motor' => $merek,
+            'tipe_motor' => $tipe,
+            'sewa_perhari' => $sewa_perhari,
+            'id_pemilik' => $id_pemilik,
+            'id_penyewa' => $id_penyewa
+        ]);
+
+        $request->session()->flash('sukses', "<script>alert('Motor berhasil disewa.');</script>");
         return redirect()->route('dashboard.get');
     }
 }

@@ -18,7 +18,11 @@ class DashboardController extends Controller
                 // dd($motors);
                 return view('dashboard', compact('motors'))->with('title', 'Dashboard Pemilik');
             } else{
-                return view('dashboard')->with('title', 'Dashboard Penyewa');
+                $motors = Motor::select('motor.*', 'pemilik.*')
+                ->join('pemilik', 'motor.id_pemilik', '=', 'pemilik.username')
+                ->get();
+
+                return view('dashboard', compact('motors'))->with('title', 'Dashboard Penyewa');
             }
         } else {
             return redirect()->route('login.get');

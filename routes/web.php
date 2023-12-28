@@ -36,3 +36,4 @@ Route::get('/motor/edit', [MotorController::class, 'show'])->name('motor.show');
 Route::post('/motor/edit', [MotorController::class, 'edit'])->name('motor.edit');
 Route::post('/motor/update', [MotorController::class, 'update'])->name('motor.update');
 Route::post('/motor/delete', [MotorController::class, 'delete'])->name('motor.delete');
+Route::post('/motor/rent', [MotorController::class, 'rent'])->name('motor.rent');
