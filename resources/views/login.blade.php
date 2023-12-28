@@ -44,4 +44,7 @@
       </div>
     </div>
 </div>
+@if (session()->has('sukses'))
+  {!! session()->get('sukses') !!}
+@endif
 @include('parts.footer')

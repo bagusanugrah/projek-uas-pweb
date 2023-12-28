@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MotorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +29,10 @@ Route::post('/login', [LoginController::class, 'post'])->name('login.post');
 
 Route::get('/dashboard', [DashboardController::class, 'show'])->name('dashboard.get');
 Route::get('/logout', [DashboardController::class, 'logout'])->name('dashboard.logout');
+
+Route::get('/motor/add', [MotorController::class, 'add'])->name('motor.add');
+Route::post('/motor/add', [MotorController::class, 'post'])->name('motor.post');
+Route::get('/motor/edit', [MotorController::class, 'show'])->name('motor.show');
+Route::post('/motor/edit', [MotorController::class, 'edit'])->name('motor.edit');
+Route::post('/motor/update', [MotorController::class, 'update'])->name('motor.update');
+Route::post('/motor/delete', [MotorController::class, 'delete'])->name('motor.delete');

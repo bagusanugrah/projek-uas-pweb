@@ -30,6 +30,7 @@ class Motor extends Model
      * @var array
      */
     protected $fillable = ['plat_nomor', 'merek', 'tipe', 'sewa_perhari', 'id_pemilik'];
+    public $incrementing = false;
 
     //motor dimiliki pemilik
     public function pemilik(): BelongsTo

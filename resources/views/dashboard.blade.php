@@ -4,4 +4,7 @@
 @else
     @include('dashboard.penyewa')
 @endif
+@if (session()->has('sukses'))
+  {!! session()->get('sukses') !!}
+@endif
 @include('parts.footer')
