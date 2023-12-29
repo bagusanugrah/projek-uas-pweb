@@ -47,6 +47,10 @@ class Penyewaan extends Pivot
     {
         return $this->belongsTo(Motor::class, 'plat_nomor', 'plat_nomor');
     }
+    public function penyewa(): BelongsTo
+    {
+        return $this->belongsTo(Penyewa::class, 'id_penyewa', 'username');
+    }
 
     //satu penyewaan memiliki satu pengembalian
     public function pengembalian(): HasOne

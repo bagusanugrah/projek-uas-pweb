@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Penyewa extends Model
 {
@@ -37,5 +38,10 @@ class Penyewa extends Model
     public function pemiliks(): BelongsToMany
     {
         return $this->belongsToMany(Pemilik::class)->using(Penyewaan::class);
+    }
+
+    public function penyewaans(): HasMany
+    {
+        return $this->hasMany(Penyewaan::class, 'id_penyewa', 'username');
     }
 }

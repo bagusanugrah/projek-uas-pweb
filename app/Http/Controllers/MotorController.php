@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class MotorController extends Controller
 {
-    public function add(Request $request){
+    public function getAddMotorPage(Request $request){
         if($request->session()->has('loggedin_role') && $request->session()->get('loggedin_role') == 'pemilik'){
             return view('tambah')->with('title', 'Rentalkan Motor');
         } else {
@@ -16,7 +16,7 @@ class MotorController extends Controller
         }
     }
 
-    public function post(Request $request){
+    public function postAMotor(Request $request){
         $id_pemilik = $request->iduser;
         $plat_nomor = $request->plat;
         $merek = $request->merek;
@@ -54,7 +54,7 @@ class MotorController extends Controller
         return redirect()->route('dashboard.get');
     }
 
-    public function edit(Request $request){
+    public function editMotorButton(Request $request){
         $plat_nomor = $request->plat;
         $motor = Motor::where('plat_nomor', $plat_nomor)->firstOrFail();
         if($motor){
@@ -65,7 +65,7 @@ class MotorController extends Controller
         }
     }
 
-    public function show(Request $request){
+    public function showEditPage(Request $request){
         if($request->session()->has('loggedin_role') && $request->session()->get('loggedin_role') == 'pemilik'){
             if($request->session()->has('motor')){
                 $motor = $request->session()->get('motor');
@@ -78,7 +78,7 @@ class MotorController extends Controller
         }
     }
 
-    public function update(Request $request){
+    public function updateAMotor(Request $request){
         $plat_nomor = $request->plat;
         $merek = $request->merek;
         $tipe = $request->tipe;
@@ -112,35 +112,13 @@ class MotorController extends Controller
         return redirect()->route('dashboard.get');
     }
 
-    public function delete(Request $request){
+    public function deleteAMotor(Request $request){
         $plat_nomor = $request->plat;
 
         $motor = Motor::where('plat_nomor', $plat_nomor)->first();
         $motor->delete();
         
         $request->session()->flash('sukses', "<script>alert('Motor berhasil dihapus.');</script>");
-        return redirect()->route('dashboard.get');
-    }
-
-    public function rent(Request $request){
-        $plat_nomor = $request->plat;
-        $merek = $request->merek;
-        $tipe = $request->tipe;
-        $sewa_perhari = $request->sewa_perhari;
-        $id_pemilik = $request->id_pemilik;
-        $id_penyewa = $request->session()->get('loggedin_user');
-
-        Penyewaan::create([
-            'tgl_penyewaan' => now()->toDateString(),
-            'plat_nomor' => $plat_nomor,
-            'merek_motor' => $merek,
-            'tipe_motor' => $tipe,
-            'sewa_perhari' => $sewa_perhari,
-            'id_pemilik' => $id_pemilik,
-            'id_penyewa' => $id_penyewa
-        ]);
-
-        $request->session()->flash('sukses', "<script>alert('Motor berhasil disewa.');</script>");
         return redirect()->route('dashboard.get');
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Motor;
+use App\Models\Penyewaan;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -15,14 +16,23 @@ class DashboardController extends Controller
                 }
                 $id_pemilik = $request->session()->get('loggedin_user');
                 $motors = Motor::where('id_pemilik', $id_pemilik)->get();
-                // dd($motors);
-                return view('dashboard', compact('motors'))->with('title', 'Dashboard Pemilik');
+                $penyewaans = Penyewaan::select('penyewaan.*', 'penyewa.*')
+                ->join('penyewa', 'penyewaan.id_penyewa', '=', 'penyewa.username')
+                ->where('penyewaan.id_pemilik', '=', $id_pemilik)
+                ->get();
+                // dd($penyewaans);
+                return view('dashboard', compact('motors', 'penyewaans'))->with('title', 'Dashboard Pemilik');
             } else{
+                $id_penyewa = $request->session()->get('loggedin_user');
                 $motors = Motor::select('motor.*', 'pemilik.*')
                 ->join('pemilik', 'motor.id_pemilik', '=', 'pemilik.username')
                 ->get();
-
-                return view('dashboard', compact('motors'))->with('title', 'Dashboard Penyewa');
+                $penyewaans = Penyewaan::select('penyewaan.*', 'pemilik.*')
+                ->join('pemilik', 'penyewaan.id_pemilik', '=', 'pemilik.username')
+                ->where('penyewaan.id_penyewa', '=', $id_penyewa)
+                ->get();
+                // dd($penyewaans);
+                return view('dashboard', compact('motors', 'penyewaans'))->with('title', 'Dashboard Penyewa');
             }
         } else {
             return redirect()->route('login.get');

@@ -36,6 +36,8 @@ class Pengembalian extends Model
         'id_penyewaan'
     ];
 
+    public $timestamps = false;
+
     //satu pengembalian dimiliki oleh satu penyewaan
     public function penyewaan(): BelongsTo
     {
