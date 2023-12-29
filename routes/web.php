@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\DashboardController;
@@ -39,3 +40,6 @@ Route::post('/motor/update', [MotorController::class, 'updateAMotor'])->name('mo
 Route::post('/motor/delete', [MotorController::class, 'deleteAMotor'])->name('motor.delete');
 Route::post('/motor/rent', [TransaksiController::class, 'rentAMotor'])->name('motor.rent');
 Route::post('/motor/return', [TransaksiController::class, 'returnAMotor'])->name('motor.return');
+
+Route::get('/my-profile', [UserController::class, 'showProfilePage'])->name('profile.show');
+Route::post('/profile/update', [UserController::class, 'updateProfile'])->name('profile.update');
