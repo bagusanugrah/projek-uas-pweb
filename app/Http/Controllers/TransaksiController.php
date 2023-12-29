@@ -9,7 +9,8 @@ use Illuminate\Http\Request;
 class TransaksiController extends Controller
 {
     public function rentAMotor(Request $request){
-        $tgl_penyewaan = now()->toDateString();
+        date_default_timezone_set("Asia/Jakarta");
+        $tgl_penyewaan = date("Y-m-d");
         $plat_nomor = $request->plat;
         $merek = $request->merek;
         $tipe = $request->tipe;
@@ -32,8 +33,9 @@ class TransaksiController extends Controller
     }
 
     public function returnAMotor(Request $request){
+        date_default_timezone_set("Asia/Jakarta");
         $tgl_penyewaan = $request->tgl_penyewaan;
-        $tgl_pengembalian = now()->toDateString();
+        $tgl_pengembalian = date("Y-m-d");
         $plat_nomor = $request->plat;
         $id_penyewaan = $request->id_penyewaan;
 

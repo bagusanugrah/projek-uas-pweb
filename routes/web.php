@@ -23,13 +23,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/daftar', [DaftarController::class, 'show'])->name('daftar.get');
-Route::post('/daftar', [DaftarController::class, 'post'])->name('daftar.post');
+Route::get('/registration', [UserController::class, 'showRegistrationPage'])->name('registration.get');
+Route::post('/registration', [UserController::class, 'postRegistration'])->name('registration.post');
 
-Route::get('/login', [LoginController::class, 'show'])->name('login.get');
-Route::post('/login', [LoginController::class, 'post'])->name('login.post');
+Route::get('/login', [UserController::class, 'showLoginPage'])->name('login.get');
+Route::post('/login', [UserController::class, 'postLogin'])->name('login.post');
 
-Route::get('/dashboard', [DashboardController::class, 'show'])->name('dashboard.get');
+Route::get('/dashboard', [DashboardController::class, 'showDashboardPage'])->name('dashboard.get');
 Route::get('/logout', [DashboardController::class, 'logout'])->name('dashboard.logout');
 
 Route::get('/motor/add', [MotorController::class, 'getAddMotorPage'])->name('motor.add');

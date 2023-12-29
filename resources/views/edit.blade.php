@@ -8,7 +8,7 @@
             <!-- Awal Card Form -->
             <div class="card mt-3 mb-3">
             <div class="card-header bg-dark text-white">
-                Rantalkan Motor Anda
+                Edit Motor
             </div>
             <div class="card-body">
                 @if ($errors->any())
@@ -39,7 +39,6 @@
                         <input id="biaya" placeholder="Biaya Sewa Perhari" type="number" name="biaya" value="{{old('biaya', $motor->sewa_perhari)}}" class="form-control" required>
                     </div><br>
                     <button type="submit" class="btn btn-primary" name="update">Update</button>
-                    <button type="reset" class="btn btn-danger" name="reset">Reset</button>
                 </form>
             </div>
             </div>

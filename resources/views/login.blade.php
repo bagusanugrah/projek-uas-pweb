@@ -35,7 +35,7 @@
               <input id="password" type="password" name="password" value="" class="form-control" required>
             </div><br>
             <button type="submit" class="btn btn-primary" name="login">Login</button>
-            <a href="{{route('daftar.get')}}" class="btn btn-secondary">Daftar</a>
+            <a href="{{route('registration.get')}}" class="btn btn-secondary">Daftar</a>
   
           </form>
         </div>

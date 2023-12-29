@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    public function show(Request $request){
+    public function showDashboardPage(Request $request){
         if($request->session()->has('loggedin_role')){
             if($request->session()->get('loggedin_role') == 'pemilik'){
                 if($request->session()->has('motor')){
