@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{$title}} | Anugrah Rental Motor</title>
     <link href="{{asset('css/bootstrap5.css')}}" rel="stylesheet">
+	<style>
+		.scrollable-table {
+			max-height: 180px; /* Set the maximum height for the table */
+			overflow-y: auto;
+		}
+	</style>
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg bg-secondary" data-bs-theme="dark">

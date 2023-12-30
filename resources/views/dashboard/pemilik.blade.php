@@ -4,7 +4,7 @@
         <div class="card-header bg-dark text-white">
             Motor yang direntalkan
         </div>
-        <div class="card-body">
+        <div class="card-body scrollable-table">
             <div class="text-left mb-3">
                 <a href="{{route('motor.add')}}" class="btn btn-success">+ Rentalkan Motor</a>
             </div>
@@ -52,7 +52,7 @@
         <div class="card-header bg-dark text-white">
             History Transaksi Rental
         </div>
-        <div class="card-body">
+        <div class="card-body scrollable-table">
             <table class="table table-bordered table-striped text-center">
                 <tr>
                     <th>No.</th>

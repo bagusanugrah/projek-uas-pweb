@@ -4,7 +4,7 @@
         <div class="card-header bg-dark text-white">
             Daftar Motor
         </div>
-        <div class="card-body">
+        <div class="card-body scrollable-table">
             <table class="table table-bordered table-striped text-center">
                 <tr>
                     <th>No.</th>
@@ -54,7 +54,7 @@
         <div class="card-header bg-dark text-white">
             History Transaksi Rental
         </div>
-        <div class="card-body">
+        <div class="card-body scrollable-table">
             <table class="table table-bordered table-striped text-center">
                 <tr>
                     <th>No.</th>
