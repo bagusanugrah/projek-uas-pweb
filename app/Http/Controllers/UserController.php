@@ -136,7 +136,7 @@ class UserController extends Controller
         $password = $request->password;
         
         $request->validate([
-            'nik' => 'required|min:16|max:16|regex:/^[a-zA-Z0-9_.]*$/',
+            'nik' => 'required|min:16|max:16|regex:/^[1-9]\d*$/',
             'nama' => 'required|max:20|regex:/^[A-Z][a-z]*(?:\s[A-Z][a-z]*)*$/',
             'nohp' => 'required|max:13|regex:/^[0-9]+$/',
             'password' => 'max:255|confirmed',
