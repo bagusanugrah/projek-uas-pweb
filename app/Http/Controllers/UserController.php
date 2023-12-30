@@ -9,8 +9,20 @@ use Illuminate\Validation\ValidationException;
 
 class UserController extends Controller
 {
-    public function showRegistrationPage(){
-        return view('registration')->with('title', 'Pendaftaran');
+    public function index(Request $request){
+        if($request->session()->has('loggedin_role')){
+            return redirect()->route('dashboard.get');
+        } else {
+            return view('index')->with('title', 'Home');
+        }
+    }
+
+    public function showRegistrationPage(Request $request){
+        if($request->session()->has('loggedin_role')){
+            return redirect()->route('dashboard.get');
+        } else {
+            return view('registration')->with('title', 'Pendaftaran');
+        }
     }
 
     public function postRegistration(Request $request){
