@@ -20,8 +20,8 @@ use App\Http\Controllers\TransaksiController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('index')->with('title', 'Home');
+})->name('index');
 
 Route::get('/registration', [UserController::class, 'showRegistrationPage'])->name('registration.get');
 Route::post('/registration', [UserController::class, 'postRegistration'])->name('registration.post');
